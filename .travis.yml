@@ -7,4 +7,14 @@ before_install:
   - docker build -t hideo/react-course-app-dev -f Dockerfile.dev . 
 script:
   - docker run -e CI=true hideo/react-course-app-dev npm rum test
-  
+deploy:
+    provider: elasticbeanstalk
+    region: "sa-east-1"
+    application: "react-app-ebs"
+    env: "Reactappebs-env"
+    bucket-name: "elasticbeanstalk-sa-east-1-086312215085"
+    bucket-path: "react-app-ebs"
+    on:
+      branch: master
+    access_key_id: $AWS_ACCESS_KEY
+    secret_access_key: $AWS_SECRET_KEY
