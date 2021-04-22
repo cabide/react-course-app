@@ -10,7 +10,7 @@ script:
 deploy:
     provider: elasticbeanstalk
     region: "sa-east-1"
-    application: "reactappebs"
+    app: "react-app-ebs"
     env: "Reactappebs-env"
     bucket-name: "elasticbeanstalk-sa-east-1-086312215085"
     bucket-path: "react-app-ebs"
